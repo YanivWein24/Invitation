@@ -31,12 +31,12 @@ interface FadeInProps {
 }
 
 export const FadeInRight = styled.div<FadeInProps>`
-  animation: ${fadeInRight} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: ${fadeInRight} 0.6s ease-in-out both;
   animation-delay: ${({ delay }) => delay || 0};
 `;
 
 const FadeInBottom = styled.div<FadeInProps>`
-  animation: ${fadeInBottom} 0.5s ease-in-out both;
+  animation: ${fadeInBottom} 0.6s ease-in-out both;
   animation-delay: ${({ delay }) => delay || 0};
 `;
 

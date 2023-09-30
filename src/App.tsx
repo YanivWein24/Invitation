@@ -1,23 +1,29 @@
 import { ThemeProvider } from "styled-components";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import theme from "@styles/theme";
+import FadeInBottom from "@styles/Animations.styled";
+import LocationSVG from "@assets/svg/location.svg";
+import CalendarSVG from "@assets/svg/calendar.svg";
+import Soldiers1 from "@assets/images/soldiers1.jpg";
+import Soldiers2 from "@assets/images/soldiers2.jpg";
+import Soldiers3 from "@assets/images/soldiers3.jpg";
+import ClockSVG from "@assets/svg/clock.svg";
 import TopSection, {
   BottomSection,
+  CarouselContainer,
+  Footer,
   Header,
-  MainImage,
   Paragraph,
   ParagraphFlex,
   ParagraphsContainer,
   StyledHR,
   SubHeader,
 } from "./App.styled";
-import FadeInBottom from "@styles/Animations.styled";
-import LocationSVG from "@assets/svg/location.svg";
-import CalendarSVG from "@assets/svg/calendar.svg";
-import SoldiersImage from "@assets/images/soldiers1.jpg";
-import ClockSVG from "@assets/svg/clock.svg";
 
 export default function App() {
-  const RSVP_info = [
+  const year = new Date().getFullYear();
+  const rsvpInfo = [
     {
       text: "רחבת הטקסים בעיר הבה”דים",
       image: LocationSVG,
@@ -42,7 +48,7 @@ export default function App() {
           <Header>
             טקס סיום
             <br />
-            השלמת קאר"ים 'עבד'
+            השלמת קאר&quot;ים &apos;עבד&apos;
           </Header>
         </FadeInBottom>
         <FadeInBottom delay="0.2s">
@@ -51,14 +57,26 @@ export default function App() {
       </TopSection>
       <BottomSection>
         <ParagraphsContainer>
-          {RSVP_info.map((info, index) => (
-            <ParagraphFlex key={info.text} delay={`${0.5 + 0.2 * index}s`}>
+          {rsvpInfo.map((info, index) => (
+            <ParagraphFlex key={info.text} delay={`${0.7 + 0.2 * index}s`}>
               <img src={info.image} alt="location" width={30} />
               <Paragraph>{info.text}</Paragraph>
             </ParagraphFlex>
           ))}
         </ParagraphsContainer>
-        <MainImage src={SoldiersImage} alt="soldiers" />
+        <CarouselContainer>
+          <Carousel showArrows infiniteLoop autoPlay interval={4000}>
+            {[Soldiers1, Soldiers2, Soldiers3].map((image) => (
+              <img
+                key={image}
+                src={image}
+                alt={image}
+                style={{ maxHeight: "300px" }}
+              />
+            ))}
+          </Carousel>
+        </CarouselContainer>
+        <Footer>©{year} Yaniv Weinshtein</Footer>
       </BottomSection>
     </ThemeProvider>
   );

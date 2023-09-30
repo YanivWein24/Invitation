@@ -22,7 +22,7 @@ export const BottomSection = styled(TopSection).attrs({
   className: "BottomSection",
 })`
   background-color: ${({ theme }) => `${theme.colors.bodyRed}`};
-  min-height: calc(100vh - 20rem);
+  height: 100%;
   justify-content: flex-start;
   padding-top: 4rem;
 `;
@@ -71,10 +71,31 @@ export const ParagraphFlex = styled(FadeInRight).attrs({
   align-items: center;
 `;
 
-export const MainImage = styled.img.attrs({
-  className: "MainImage",
+export const CarouselContainer = styled.div.attrs({
+  className: "CarouselContainer",
 })`
-  max-width: 100%;
+  direction: ltr; // the carousel won't work with 'rtl' direction
+  max-width: 800px;
+  height: max-content;
+  margin-top: 3rem;
+
+  .carousel-status {
+    display: none;
+  }
+
+  ${MaxWidth.mobileBreakpoint`
+  width:100vw;
+    padding: 0 6px;
+  `}
+`;
+
+export const Footer = styled.p.attrs({
+  className: "Footer",
+})`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.yellow};
+  margin: 5rem 0 1rem;
+  direction: ltr;
 `;
 
 export default TopSection;
