@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=David+Libre&display=swap");
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -9,6 +11,8 @@ body {
   padding: 0;
   background-color: #e8e8e8;
   overflow-x: hidden;
+  direction: rtl;
+  font-family: "David Libre";
 }
 
 h1,

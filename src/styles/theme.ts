@@ -1,16 +1,20 @@
 const theme = {
   colors: {
-    offWhite: "#f5f5f5",
-    grey: "#42505c",
-    bodyGrey: "#e8e8e8",
-    lightBlue: "#3b95f1",
-    linearGradient: "linear-gradient(220deg, #19d3d9, #3b95f1)",
+    body: "#FBF6F3",
+    bodyRed: "#A2001D",
+    brown: "#54161D",
+    yellow: "#E8DAC6",
   },
-
   breakpoints: {
     mobileBreakpoint: "600",
     tabletBreakpoint: "1000",
     laptopBreakpoint: "1200",
+    narrowBreakpoint: "1480",
+    wideBreakpoint: "1600",
+  },
+  fontSizes: {
+    header: "60px",
+    subHeader: "22px",
   },
 };
 
