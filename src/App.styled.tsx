@@ -1,3 +1,4 @@
+import { FadeInRight } from "@styles/Animations.styled";
 import MaxWidth from "@styles/responsive";
 import styled from "styled-components";
 
@@ -62,12 +63,18 @@ export const ParagraphsContainer = styled.div.attrs({
   gap: 20px;
 `;
 
-export const ParagraphFlex = styled.div.attrs({
+export const ParagraphFlex = styled(FadeInRight).attrs({
   className: "ParagraphFlex",
 })`
   display: flex;
   gap: 8px;
   align-items: center;
+`;
+
+export const MainImage = styled.img.attrs({
+  className: "MainImage",
+})`
+  max-width: 100%;
 `;
 
 export default TopSection;
