@@ -1,8 +1,9 @@
-import { FadeInRight } from "@styles/Animations.styled";
+import { FadeInRight } from "@styles/animations/FadeIn.styled";
 import MaxWidth from "@styles/responsive";
 import styled from "styled-components";
 
 const TopSection = styled.div.attrs({ className: "TopSection" })`
+  position: relative;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.body};
   display: flex;
@@ -84,8 +85,12 @@ export const CarouselContainer = styled.div.attrs({
   }
 
   ${MaxWidth.mobileBreakpoint`
-  width:100vw;
+    width:100vw;
     padding: 0 6px;
+
+    img {
+      max-height: 300px !important;
+    }
   `}
 `;
 

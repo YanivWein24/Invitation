@@ -24,6 +24,7 @@ h6 {
   font-weight: unset;
   margin: 0;
   padding: 0;
+  z-index: 2; /* make sure the text is always above the animated images */
 }
 input,
 textarea {
