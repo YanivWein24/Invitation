@@ -3,6 +3,17 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import theme from "@styles/theme";
 import topImages, { bottomImages } from "@data/images";
+import TopSection, {
+  BottomSection,
+  CarouselContainer,
+  Footer,
+  Header,
+  Paragraph,
+  ParagraphFlex,
+  ParagraphsContainer,
+  StyledHR,
+  SubHeader,
+} from "@styles/App.styled";
 import FadeIn, { FadeInBottom } from "@styles/animations/FadeIn.styled";
 import FloatingImage, {
   FloatingImageReversed,
@@ -14,17 +25,6 @@ import Soldiers1 from "@assets/images/soldiers1.jpg";
 import Soldiers2 from "@assets/images/soldiers2.jpg";
 import Soldiers3 from "@assets/images/soldiers3.jpg";
 import Soldiers4 from "@assets/images/soldiers4.jpg";
-import TopSection, {
-  BottomSection,
-  CarouselContainer,
-  Footer,
-  Header,
-  Paragraph,
-  ParagraphFlex,
-  ParagraphsContainer,
-  StyledHR,
-  SubHeader,
-} from "./App.styled";
 
 export default function App() {
   const year = new Date().getFullYear();
