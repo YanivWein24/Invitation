@@ -1,6 +1,6 @@
-import { FadeInRight } from "@styles/animations/FadeIn.styled";
-import MaxWidth from "@styles/responsive";
 import styled from "styled-components";
+import MaxWidth from "@styles/responsive";
+import { FadeInRight } from "@styles/animations/FadeIn.styled";
 
 const TopSection = styled.div.attrs({ className: "TopSection" })`
   position: relative;
@@ -101,6 +101,10 @@ export const Footer = styled.p.attrs({
   color: ${({ theme }) => theme.colors.yellow};
   margin: 5rem 0 1rem;
   direction: ltr;
+
+  ${MaxWidth.mobileBreakpoint`
+    font-size: 12px;
+  `}
 `;
 
 export default TopSection;
