@@ -1,5 +1,14 @@
 import styled, { keyframes } from "styled-components";
 
+const fadeIn = keyframes`
+ 0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 const fadeInBottom = keyframes`
  0% {
     -webkit-transform: translateY(75px);
@@ -28,16 +37,40 @@ const fadeInRight = keyframes`
 
 interface FadeInProps {
   delay?: string;
+  duration?: string;
+  width?: string;
 }
 
-export const FadeInRight = styled.div<FadeInProps>`
+export const FadeInRight = styled.div.attrs({
+  className: "FadeInRight",
+})<FadeInProps>`
   animation: ${fadeInRight} 0.6s ease-in-out both;
   animation-delay: ${({ delay }) => delay || 0};
 `;
 
-const FadeInBottom = styled.div<FadeInProps>`
+export const FadeInBottom = styled.div.attrs({
+  className: "FadeInBottom",
+})<FadeInProps>`
   animation: ${fadeInBottom} 0.6s ease-in-out both;
   animation-delay: ${({ delay }) => delay || 0};
 `;
 
-export default FadeInBottom;
+interface ExtendedFadeIn extends FadeInProps {
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+  mobileTop?: string;
+  mobileBottom?: string;
+  mobileLeft?: string;
+  mobileRight?: string;
+}
+
+const FadeIn = styled.div.attrs({ className: "FadeIn" })<ExtendedFadeIn>`
+  animation: ${fadeIn} 0.6s ease-in-out both;
+  animation-delay: ${({ delay }) => delay || 0};
+  animation-duration: ${({ duration }) => duration};
+  width: ${({ width }) => width};
+`;
+
+export default FadeIn;

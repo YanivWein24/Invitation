@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import theme from "@styles/theme";
-import FadeInBottom from "@styles/animations/FadeIn.styled";
+import FadeIn, { FadeInBottom } from "@styles/animations/FadeIn.styled";
 import LocationSVG from "@assets/svg/location.svg";
 import CalendarSVG from "@assets/svg/calendar.svg";
 import Soldiers1 from "@assets/images/soldiers1.jpg";
@@ -10,10 +10,22 @@ import Soldiers2 from "@assets/images/soldiers2.jpg";
 import Soldiers3 from "@assets/images/soldiers3.jpg";
 import Soldiers4 from "@assets/images/soldiers4.jpg";
 import ClockSVG from "@assets/svg/clock.svg";
-import Image1 from "@assets/svg/topSection/1.svg";
-import Image2 from "@assets/svg/topSection/2.svg";
-import Image3 from "@assets/svg/topSection/3.svg";
-import Image4 from "@assets/svg/topSection/4.svg";
+import TopImage1 from "@assets/svg/topSection/1.svg";
+import TopImage2 from "@assets/svg/topSection/2.svg";
+import TopImage3 from "@assets/svg/topSection/3.svg";
+import TopImage4 from "@assets/svg/topSection/4.svg";
+import TopImage5 from "@assets/svg/topSection/5.svg";
+import TopImage6 from "@assets/svg/topSection/6.svg";
+import BottomImage1 from "@assets/svg/bottomSection/1.svg";
+import BottomImage2 from "@assets/svg/bottomSection/2.svg";
+import BottomImage3 from "@assets/svg/bottomSection/3.svg";
+import BottomImage4 from "@assets/svg/bottomSection/4.svg";
+import BottomImage5 from "@assets/svg/bottomSection/5.svg";
+import BottomImage6 from "@assets/svg/bottomSection/6.svg";
+import FloatingImage, {
+  FloatingImageProps,
+  FloatingImageReversed,
+} from "@styles/animations/FloatAround.styled";
 import TopSection, {
   BottomSection,
   CarouselContainer,
@@ -25,10 +37,6 @@ import TopSection, {
   StyledHR,
   SubHeader,
 } from "./App.styled";
-import FloatingImage, {
-  FloatingImageProps,
-  FloatingImageReversed,
-} from "@styles/animations/FloatAround.styled";
 
 interface FloatingImages extends FloatingImageProps {
   src: string;
@@ -52,53 +60,140 @@ export default function App() {
     },
   ];
 
-  const images: FloatingImages[] = [
+  const topImages: FloatingImages[] = [
     {
-      src: Image2,
-      alt: Image2,
+      src: TopImage2,
+      alt: TopImage2,
+      width: "30px",
+      height: "30px",
       rotation: "10deg",
       right: "3rem",
       mobileRight: "1rem",
-      duration: "7s",
+      duration: "25s",
     },
     {
-      src: Image1,
-      alt: Image1,
-      width: "25px",
-      height: "25px",
+      src: TopImage1,
+      alt: TopImage1,
       top: "10rem",
       right: "15%",
       mobileRight: "10%",
-      duration: "9s",
+      duration: "17s",
     },
     {
-      src: Image3,
-      alt: Image3,
-      width: "35px",
-      height: "35px",
-      mobileLeft: "12px",
+      src: TopImage3,
+      alt: TopImage3,
+      mobileLeft: "2rem",
     },
     {
-      src: Image4,
-      alt: Image4,
+      src: TopImage4,
+      alt: TopImage4,
+      width: "30px",
+      height: "30px",
       left: "15%",
       top: "13rem",
       mobileLeft: "1rem",
       mobileTop: "17rem",
-      reverse: true,
+    },
+    {
+      src: TopImage5,
+      alt: TopImage5,
+      width: "35px",
+      height: "35px",
+      left: "40%",
+      bottom: "1.5rem",
+      rotation: "15deg",
+      duration: "17s",
+    },
+    {
+      src: TopImage6,
+      alt: TopImage6,
+      width: "30px",
+      height: "30px",
+      right: "40%",
+      top: "1rem",
+      duration: "17s",
+    },
+  ];
+
+  const bottomImages: FloatingImages[] = [
+    {
+      src: BottomImage2,
+      alt: BottomImage2,
+      width: "30px",
+      height: "30px",
+      rotation: "10deg",
+      right: "3rem",
+      mobileRight: "1rem",
+      duration: "25s",
+    },
+    {
+      src: BottomImage1,
+      alt: BottomImage1,
+      top: "10rem",
+      right: "15%",
+      mobileRight: "9%",
+      duration: "17s",
+    },
+    {
+      src: BottomImage3,
+      alt: BottomImage3,
+      left: "5rem",
+      mobileLeft: "1rem",
+    },
+    {
+      src: BottomImage4,
+      alt: BottomImage4,
+      width: "30px",
+      height: "30px",
+      left: "15%",
+      top: "13rem",
+      mobileTop: "14rem",
+      mobileLeft: "1rem",
+      rotation: "-15deg",
+    },
+    {
+      src: BottomImage5,
+      alt: BottomImage5,
+      rotation: "10deg",
+      bottom: "4rem",
+      right: "10rem",
+      mobileRight: "5rem",
+      duration: "25s",
+    },
+    {
+      src: BottomImage6,
+      alt: BottomImage6,
+      width: "35px",
+      height: "35px",
+      bottom: "10rem",
+      mobileBottom: "6rem",
+      duration: "17s",
     },
   ];
 
   return (
     <ThemeProvider theme={theme}>
       <TopSection>
-        {images.map(({ src, alt, ...props }, index) =>
-          index === 1 || index % 2 ? (
-            <FloatingImage key={src} src={src} alt={alt} {...props} />
-          ) : (
-            <FloatingImageReversed key={src} src={src} alt={alt} {...props} />
-          )
-        )}
+        <div>
+          {topImages.map(({ src, alt, ...props }, index) => {
+            const baseDelay = index % 2 ? 0.8 : 1.2;
+            return (
+              <FadeIn
+                delay={`${baseDelay + 0.2 * index}s`}
+                width="100%"
+                duration="3s"
+                key={src}
+              >
+                {index === 1 || index % 2 ? (
+                  <FloatingImage src={src} alt={alt} {...props} />
+                ) : (
+                  <FloatingImageReversed src={src} alt={alt} {...props} />
+                )}
+              </FadeIn>
+            );
+          })}
+        </div>
+
         <FadeInBottom>
           <SubHeader>אנו מתכבדים להזמינכם אל</SubHeader>
         </FadeInBottom>
@@ -114,6 +209,30 @@ export default function App() {
         </FadeInBottom>
       </TopSection>
       <BottomSection>
+        <div>
+          {bottomImages.map(({ src, alt, ...props }, index) => {
+            const baseDelay = index % 2 ? 0.8 : 1.2;
+            return (
+              <FadeIn
+                delay={`${baseDelay + 0.2 * index}s`}
+                width="100%"
+                duration="3s"
+              >
+                {index === 1 || index % 2 ? (
+                  <FloatingImage key={src} src={src} alt={alt} {...props} />
+                ) : (
+                  <FloatingImageReversed
+                    key={src}
+                    src={src}
+                    alt={alt}
+                    {...props}
+                  />
+                )}
+              </FadeIn>
+            );
+          })}
+        </div>
+
         <ParagraphsContainer>
           {rsvpInfo.map((info, index) => (
             <ParagraphFlex key={info.text} delay={`${0.5 + 0.2 * index}s`}>

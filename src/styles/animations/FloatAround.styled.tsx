@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import MaxWidth from "./../responsive";
+import MaxWidth from "../responsive";
 
 const floatUpDown = keyframes`
  0% {
@@ -44,22 +44,21 @@ export interface FloatingImageProps {
   mobileRight?: string;
   rotation?: string;
   duration?: string;
-  reverse?: boolean;
 }
 
 const FloatingImage = styled.img.attrs({
   className: "FloatingImage",
 })<FloatingImageProps>`
-  animation: ${floatUpDown} 6s ease-in-out infinite;
-  animation-duration: ${({ duration }) => duration && duration};
-  width: ${({ width }) => width ?? "30px"};
-  height: ${({ height }) => height ?? "30px"};
+  animation: ${floatUpDown} 20s ease-in-out infinite;
+  animation-duration: ${({ duration }) => duration};
+  width: ${({ width }) => width ?? "25px"};
+  height: ${({ height }) => height ?? "25px"};
   opacity: 0.35;
   position: absolute;
   top: ${({ top, bottom }) => top || (!bottom && "2rem")};
   bottom: ${({ bottom }) => bottom && bottom};
   left: ${({ left, right }) => left || (!right && "2rem")};
-  right: ${({ right }) => right && right};
+  right: ${({ right }) => right};
   transform-origin: center;
   ${({ rotation }) => (rotation ? `rotate: ${rotation};` : "rotate: -10deg;")}
 
@@ -78,7 +77,7 @@ const FloatingImage = styled.img.attrs({
 export const FloatingImageReversed = styled(FloatingImage).attrs({
   className: "FloatingImageReversed",
 })`
-  animation: ${floatUpDownReverse} 6s ease-in-out infinite;
+  animation: ${floatUpDownReverse} 20s ease-in-out infinite;
   animation-duration: ${({ duration }) => duration && duration};
 `;
 
