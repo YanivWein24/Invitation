@@ -25,12 +25,16 @@ import Soldiers1 from "@assets/images/soldiers1.jpg";
 import Soldiers2 from "@assets/images/soldiers2.jpg";
 import Soldiers3 from "@assets/images/soldiers3.jpg";
 import Soldiers4 from "@assets/images/soldiers4.jpg";
+import Soldiers5 from "@assets/images/soldiers5.jpg";
+import Soldiers6 from "@assets/images/soldiers6.jpg";
+import Soldiers7 from "@assets/images/soldiers7.jpg";
+import Soldiers8 from "@assets/images/soldiers8.jpg";
 
 export default function App() {
   const year = new Date().getFullYear();
   const rsvpInfo = [
     {
-      text: "רחבת הטקסים בעיר הבה”דים",
+      text: "מגרש המסדרים בעיר הבה”דים",
       image: LocationSVG,
     },
     {
@@ -38,9 +42,20 @@ export default function App() {
       image: CalendarSVG,
     },
     {
-      text: "16:00",
+      text: "התכנסות 15:00 | תחילת הטקס 16:00",
       image: ClockSVG,
     },
+  ];
+
+  const images = [
+    Soldiers1,
+    Soldiers2,
+    Soldiers3,
+    Soldiers4,
+    Soldiers5,
+    Soldiers6,
+    Soldiers7,
+    Soldiers8,
   ];
 
   return (
@@ -113,7 +128,7 @@ export default function App() {
         </ParagraphsContainer>
         <CarouselContainer>
           <Carousel showArrows infiniteLoop autoPlay interval={4000}>
-            {[Soldiers1, Soldiers2, Soldiers3, Soldiers4].map((image) => (
+            {images.map((image) => (
               <img
                 key={image}
                 src={image}
