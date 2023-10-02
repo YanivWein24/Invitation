@@ -12,12 +12,12 @@ import BottomImage4 from "@assets/svg/bottomSection/4.svg";
 import BottomImage5 from "@assets/svg/bottomSection/5.svg";
 import BottomImage6 from "@assets/svg/bottomSection/6.svg";
 
-interface FloatingImages extends FloatingImageProps {
+export interface IFloatingImages extends FloatingImageProps {
   src: string;
   alt: string;
 }
 
-const topImages: FloatingImages[] = [
+const topImages: IFloatingImages[] = [
   {
     src: TopImage2,
     alt: TopImage2,
@@ -73,7 +73,7 @@ const topImages: FloatingImages[] = [
   },
 ];
 
-export const bottomImages: FloatingImages[] = [
+export const bottomImages: IFloatingImages[] = [
   {
     src: BottomImage2,
     alt: BottomImage2,
