@@ -1,6 +1,6 @@
-import { FadeInBottom } from "@styles/animations/FadeIn.styled";
-import MaxWidth from "@styles/responsive";
 import styled from "styled-components";
+import MaxWidth from "@styles/responsive";
+import { FadeInBottom } from "@styles/animations/FadeIn.styled";
 
 const CarouselContainer = styled(FadeInBottom).attrs({
   className: "CarouselContainer",
@@ -22,14 +22,13 @@ const CarouselContainer = styled(FadeInBottom).attrs({
     border: 3px solid #333;
   }
 
-  ${MaxWidth.mobileBreakpoint`
-      width:100vw;
-      padding: 0 6px;
-  
-      img {
-        max-height: 300px !important;
-      }
-    `}
+  ${MaxWidth.tabletBreakpoint`
+    width:100vw;
+    padding: 0 6px;
+    img {
+      max-height: 300px !important;
+    }
+  `}
 `;
 
 export default CarouselContainer;

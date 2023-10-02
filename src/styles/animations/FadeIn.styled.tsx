@@ -55,18 +55,7 @@ export const FadeInBottom = styled.div.attrs({
   animation-delay: ${({ delay }) => delay || 0};
 `;
 
-interface ExtendedFadeIn extends FadeInProps {
-  top?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-  mobileTop?: string;
-  mobileBottom?: string;
-  mobileLeft?: string;
-  mobileRight?: string;
-}
-
-const FadeIn = styled.div.attrs({ className: "FadeIn" })<ExtendedFadeIn>`
+const FadeIn = styled.div.attrs({ className: "FadeIn" })<FadeInProps>`
   animation: ${fadeIn} 0.6s ease-in-out both;
   animation-delay: ${({ delay }) => delay || 0};
   animation-duration: ${({ duration }) => duration};

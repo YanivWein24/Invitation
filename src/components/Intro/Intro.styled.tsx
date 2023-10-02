@@ -1,5 +1,5 @@
-import MaxWidth from "@styles/responsive";
 import styled from "styled-components";
+import MaxWidth from "@styles/responsive";
 
 const Header = styled.h1.attrs({ className: "Header" })`
   text-align: center;

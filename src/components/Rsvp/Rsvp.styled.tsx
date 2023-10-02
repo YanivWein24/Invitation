@@ -1,5 +1,5 @@
-import { FadeInRight } from "@styles/animations/FadeIn.styled";
 import styled from "styled-components";
+import { FadeInRight } from "@styles/animations/FadeIn.styled";
 
 const Paragraph = styled.p.attrs({ className: "Paragraph" })`
   color: ${({ theme }) => theme.colors.yellow};

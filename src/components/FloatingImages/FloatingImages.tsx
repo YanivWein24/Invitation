@@ -12,23 +12,15 @@ export default function FloatingImages({
   return (
     <div>
       {/* do not remove the div */}
-      {images.map(({ src, alt, ...props }, index) => {
-        const baseDelay = index % 2 ? 0 : 0;
-        return (
-          <FadeIn
-            key={src}
-            width="100%"
-            duration="3s"
-            delay={`${baseDelay + 0.2 * index}s`}
-          >
-            {index === 1 || index % 2 ? (
-              <FloatingImage src={src} alt={alt} {...props} />
-            ) : (
-              <FloatingImageReversed src={src} alt={alt} {...props} />
-            )}
-          </FadeIn>
-        );
-      })}
+      {images.map(({ src, alt, ...props }, index) => (
+        <FadeIn key={src} width="100%" duration="3s" delay={`${0.2 * index}s`}>
+          {index === 1 || index % 2 ? (
+            <FloatingImage src={src} alt={alt} {...props} />
+          ) : (
+            <FloatingImageReversed src={src} alt={alt} {...props} />
+          )}
+        </FadeIn>
+      ))}
     </div>
   );
 }
